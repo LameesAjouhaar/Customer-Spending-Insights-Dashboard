@@ -6,48 +6,145 @@ A responsive financial analytics dashboard that visualizes customer spending dat
 
 This project simulates a banking analytics dashboard similar to a real financial platform.
 
-It consumes mocked API data through Axios and exposes structured dashboard features including:
+It consumes mocked API data through a local API abstraction and exposes structured dashboard features including:
 
-Customer Profile
+* Customer Profile
 
-Spending Summary
+* Spending Summary
 
-Spending Categories
+* Spending Categories
 
-Spending Trends
+* Spending Trends
 
-Goals Tracking
+* Goals Tracking
 
-Transactions Table
+* Transactions Table
 
-The project is built to demonstrate clean architecture and scalable frontend patterns.
+## The project demonstrates:
 
-## Environment
-
-Node.js 18+
-
-npm or yarn
-
-Modern browser (Chrome / Edge / Firefox recommended)
+* Clean architecture
+* Scalable frontend patterns
+* Mocked backend abstraction
+* Dockerized deployment
 
 ## Tech Stack
 
-React (Vite)
+* React (Vite)
 
-TypeScript
+* TypeScript
 
-React Query (TanStack Query)
+* React Query (TanStack Query)
 
-Axios
+* Axios
 
-Tailwind CSS
+* Tailwind CSS
 
-Lucide Icons
+* Lucide Icons
 
-Mocked JSON API data
+* Mocked JSON API
 
-## Features
-# Customer Profile
+* Docker 
+
+## Requirements
+
+* Node.js 18+
+
+* npm or yarn
+
+* Docker Desktop
+
+* Modern browser (Chrome / Edge / Firefox)
+
+## Running the Project (Local Development)
+1.  Install Dependencies
+npm install
+
+or
+
+yarn install
+2. start Development Server
+npm run dev
+
+The app runs at:
+
+http://localhost:5173
+
+
+## Running with Docker 
+1.  Build the Docker Image
+
+Make sure Docker Desktop is running.
+
+From the project root:
+
+docker build -t spending-dashboard .
+
+2.  Run the Docker Container
+docker run -p 3000:80 spending-dashboard
+
+3. Open the Application
+
+Visit:
+
+http://localhost:3000
+
+
+## API Mocking
+
+This project uses a local mockData.json file instead of a live backend.
+
+API calls are defined in:
+
+dashboardApi.ts
+
+Data is returned directly from:
+
+mockData.json
+
+This allows:
+
+* Real axios structure
+* Real async simulation
+* Strong type safety
+* Production-like API abstraction
+* No backend required
+
+A simulated delay is added to mimic real API latency.
+
+## Project Architecture
+Feature Based Folder Structure
+
+Each feature contains:
+
+* Component
+
+* Hook
+
+* Types
+
+* API usage
+
+## Reusable Components
+
+* Card
+
+* Loader
+
+* Error State
+
+* Custom Hooks
+
+## Business logic is separated into:
+
+* useSpendingSummary
+
+* useSpendingTrends
+
+* useTransactions
+
+
+## Key Features
+1. Customer Profile
 
 Displays:
 
@@ -61,9 +158,9 @@ Total lifetime spending
 
 Join date
 
-# Spending Summary
+2. Spending Summary
 
-High-level financial metrics including:
+High level metrics:
 
 Total spent
 
@@ -71,37 +168,35 @@ Transaction count
 
 Average transaction
 
-Top spending category
+Top category
 
 Comparison to previous period
 
-# Spending Categories
+3. Spending Categories
 
-Shows spending breakdown by category:
+Shows breakdown per category:
 
-Amount per category
+Amount
 
-Percentage contribution
+Percentage
 
-Visual icons
+Icons
 
-Colour-coded display
+Colour coded visualization
 
-# Spending Trends
+4. Spending Trends
 
-Displays monthly spending trends:
+Sorted newest to oldest
 
-Sorted from newest → oldest
+Bar scaling
 
-Bar scaling based on highest spending month
+View More / View Less
 
-View More / View Less functionality
+Clean financial timeline
 
-Clean financial timeline layout
+5. Goals
 
-# Goals
-
-Tracks monthly budget goals:
+Tracks monthly budget:
 
 Budget
 
@@ -109,11 +204,10 @@ Current spend
 
 Progress bar
 
-Status indicator (on track / warning / exceeded)
 
-# Transactions
+6. Transactions
 
-Displays recent transactions:
+Displays:
 
 Merchant icon
 
@@ -127,67 +221,22 @@ Description
 
 Pagination ready structure
 
-## Key Design Principles
+## Future Improvements
 
-* Feature based folder structure
-* Reusable components
-* Custom hooks for API logic
-* Separation of concerns
-* Mock API abstraction
-* Scalable component architecture
-
-## Running the Project
-1. Install Dependencies
-npm install
-
-or
-
-yarn install
-2. Start Development Server
-npm run dev
-
-The app will run at:
-
-http://localhost:5173
-3. Build for Production
-npm run build
-
-# API Mocking
-
-This project uses a local mockData.json file instead of a live backend.
-
-API calls:
-
-dashboardApi.ts
-
-Return data directly from:
-
-mockData.json
-
-This allows:
-
-Real axios calls
-
-Real async behaviour
-
-Real data typing
-
-No backend required
-
-# Future Improvements
-
-If extended further, the project could include:
+If extended further, this project could include:
 
 Real backend integration
 
 Authentication
 
-Date filters
+Date filtering
 
-API pagination for transactions
+API pagination
 
 Live data refresh
 
 Dark mode toggle
 
 Export to PDF / CSV
+
+Charts with more advanced analytics
